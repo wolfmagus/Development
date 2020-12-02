@@ -1,0 +1,167 @@
+.flag{
+    background-color: #FFFFFF;
+    width: 420px;
+    height: 400px;
+    margin: 2px;
+    position: relative;
+  }
+  .container-one {
+    width: 100%;
+    padding-top: 150%; /* 2:3 Aspect Ratio */
+    position: relative;
+  }
+  .container-two {
+    width: 100%;
+    padding-top: 166.6%; /* 3:5 Aspect Ratio */
+  }/*
+  .container-three {
+    width: 100%;
+    padding-bottom: 50.00%; /* 1:1 Aspect Ratio */
+  /* }/*
+  .container-four {
+    width: 100%;
+    padding-bottom: 160%; /* 5:8 Aspect Ratio */
+  /* }/*
+  .container-five {
+    width: 100%;
+    padding-bottom: 116.6%; /* 6:7 Aspect Ratio */
+  /* }*/
+  .text {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .fr-first{
+    background-color: blue;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .fr-second{
+    background-color: white;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .fr-third{
+    background-color: red;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .gr-first{
+    background-color: black;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .gr-second{
+    background-color: red;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .gr-third{
+    background-color: yellow;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .md-first{
+    background-color: white;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .md-second{
+    background-color: red;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .md-third{
+    background-color: green;
+    width: 140px;
+    height: 100%;
+    float: left;
+  }
+  .swi-first{
+    background-color: white;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .swi-second{
+    background-color: red;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .swe-first{
+    background-color: blue;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .swe-second{
+    background-color: yellow;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .ga-firts{
+    background-color: red;
+    width: 105px;
+    height: 100%;
+    float: left;
+  }
+  .ga-second{
+    background-color: white;
+    width: 105px;
+    height: 100%;
+    float: left;
+  }
+  .ga-third{
+    background-color: blue;
+    width: 105px;
+    height: 100%;
+    float: left;
+  }
+  .ga-fourth{
+    background-color: green;
+    width: 105px;
+    height: 100%;
+    float: left;
+  }
+  .ja-first{
+    background-color: white;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .ja-second{
+    background-color: red;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .ni-first{
+    background-color: orange;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .ni-second{
+    background-color: white;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
+  .ni-third{
+    background-color: green;
+    width: 210px;
+    height: 100%;
+    float: left;
+  }
