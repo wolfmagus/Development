@@ -1,0 +1,58 @@
+
+.container{
+    display:grid;
+    height:75vh;
+    width: 120vh;
+    grid-template-rows: auto auto auto auto; 
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin-left:20%;
+    margin-right:20%;
+    
+}
+
+#salmonPinkBar{
+    background:#F5C6D6;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    
+}
+
+#hotPinkBar1{
+    background:#EE2E84;
+    
+}
+
+#hotPinkBar2{
+    background:#EE2E84;
+}
+
+#hotPinkBar3{
+    background:#EE2E84;
+}
+
+#hotPinkBar4{
+    background:#EE2E84;
+}
+
+#lightBlueBar1{
+    background:#85CFD8;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#lightBlueBar2{
+    background:#85CFD8;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+#limeGreenBar{
+   background: #8DC63F;
+   grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#burntOrangeBar{
+    background:#E76E34;
+}

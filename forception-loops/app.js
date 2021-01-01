@@ -1,18 +1,20 @@
-var people = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"]
+const people = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"]
 
-var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-function forception(people, alphabet){
+function combineArray(ppl, alph){
 
-    for(var i = 0; i < people.length; i++ ){
-        console.log(people[i])
+    const newArray = [];
+
+    for(var i = 0; i < ppl.length; i++ ){
+        newArray.push(ppl[i] + ":")
         
-        for(var i = 0; i < alphabet.length; i++ ){
-            console.log(alphabet[i])
-            
+
+        for(var j = 0; j < alph.length; j++ ){
+            newArray.push(alph[j])
         }
         
     }
+    return newArray
 }
-
-console.log(forception)
+console.log(combineArray(people, alphabet))

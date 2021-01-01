@@ -5,9 +5,6 @@ h1.className = "header";
 
 document.getElementById("header").appendChild(h1);
 
-
-
-
 var message = document.createElement("messages") 
 
 const messages = document.getElementsByClassName("message");
@@ -22,8 +19,6 @@ messages[3].textContent = "You're great too!";
 }
 
 messages.textContent = [i]
-
-
 
 //var message = document.createElement("messages")
 
@@ -40,8 +35,6 @@ document.getElementById("clear-button").addEventListener('click', function(){
 })
 
 //const messages = document.getElementsByClassName("message");
-
-
 
 
 document.getElementsByClassName("message")

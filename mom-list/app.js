@@ -13,9 +13,10 @@ form.addEventListener("submit", function(event){
     const todoText = inputBox.value
     addItemToList(todoText)
     form.title.value = ""
-
-    console.log(groceryTitle)
 })
+
+
+
      //Adds an item to the list.
 function addItemToList(item) {
     
@@ -27,14 +28,53 @@ function addItemToList(item) {
     //Assign the attribute value as the content of grocery. 
     grocery.textContent = item 
     list.className = "list";
-    deleteButton.textContent = "Delete"
+    deleteButton.textContent = "Delete";
+    deleteButton.id = "delete-button";
+    
+    deleteButton.addEventListener("click", function(event) {
+        event.preventDefault()
+        removeItem()
+    })
 
     //Get the element with the id add-todo and append li to the list in the DOM. 
     document.getElementById("list").appendChild(grocery)
     grocery.append(deleteButton)
 
+    function removeItem(){
+    
+        grocery.remove()
+    }
 
 }
+
+
+
+
+// form.addEventListener("click", function(event){
+//     event.preventDefault()
+//     removeItem()
+    
+// })
+
+
+
+
+
+
+// document.getElementById("delete-button").addEventListener("click", function(event){
+//     event.preventDefault()
+    
+//     removeItemFromList()
+    
+// })
+
+// function removeItemFromList(){
+    
+//     const deleteItem = document.getElementById("todoText");
+//     deleteItem.removeChild(deleteItem.todoText.childNodes[0]);
+// }
+
+
 
 
 //form.addEventListener("click", function(deleteButtonFunc){

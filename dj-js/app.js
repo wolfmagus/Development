@@ -17,7 +17,7 @@ box.addEventListener("dblclick", function(){
 })
 
 box.addEventListener("mouseout", function(){
-    backgroundColor = "orange"
+    box.style.backgroundColor = "orange"
 })
 
 

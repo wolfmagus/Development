@@ -10,7 +10,7 @@ just fix the existing ones.
 
 var enemyName = ["Lex Luthor","Batman","Darkseid","Brainiac","General Zod","Doomsday"];
 
-function whoWins(isThereKryptonite, enemyName)
+function whoWins(isThereKryptonite, enemyName){
 
 if (!isThereKryptonite){
     return "Superman beats, " + enemyName + " of course";
@@ -28,14 +28,15 @@ for (var i = 0; i < enemyName.length; i++){
     }
     console.log(whoWins(isThereKryptonite, enemyName[i]));
 }
+}
 
 function loisAttracted()
 {
     // 1 is not at all attracted, 10 is "super" attracted...
-    return Math.floor((Mat.random()*10)+1);
+    return Math.floor((Math.random()*10)+1);
 }
 
-consol.log( loisAttracted ()) ;
+console.log( loisAttracted()) ;
 
 var clarkKent = true;
 var superman = false;
@@ -47,5 +48,6 @@ while (clarkKent === true){
     if (phoneBoothQuickChange >= 0.5) {
         clarkKent = false;
         superman = true;
-        console.log("Now I'm Superman!");}
+        console.log("Now I'm Superman!");
+    }
     }

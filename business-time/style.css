@@ -1,0 +1,50 @@
+body{
+    background-color: lemonchiffon;
+    padding: 100px 300px 300px 300px;
+    border: 2px dotted black;
+}
+
+.container{
+    display:grid;
+    height:75vh;
+    width: 120vh;
+    grid-template-rows: auto auto auto auto; 
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    text-align: center;
+    
+}
+
+.comment{
+    font-size: 17px;
+}
+
+#apple-pic{
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+}
+
+#greenApple{
+    background:#67C613;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#redApple{
+    background:#DC143C;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+}
+
+#goldenApple{
+   background: #FFD700;
+   grid-column-start: 1;
+   grid-column-end: 3;
+}

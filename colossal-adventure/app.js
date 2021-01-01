@@ -1,82 +1,210 @@
 const readlineSync = require("readline-sync");
-let currentPlayerHp = [];
-let currentMonsterHp = [];
-const walkOption = ["Start walking"]
-// const goblinAttackDiceRoll = goblinAttackAssignment()
-const runDiceRoll = Math.floor(Math.random * 3)
-let run = false;
-let fight = false;
 
-
-  // Greet the player
+// Greet the player
   const name = readlineSync.question("Greetings adventurer! What is your name?")
 
-const goblinArray = [ 
+var goblinArray = [ 
         {
-            name: "loneGoblin", 
+            name: "Lone Goblin", 
             hp: 10, 
-            attackValue: Math.floor(Math.random() * 3)
+            attackValue:Math.floor(Math.random() * 3)
+            
         }, 
         {
-            name: "hobGoblin", 
+            name: "Hob Goblin", 
             hp: 15, 
-            attackValue: Math.floor(Math.random() * 5)
+            attackValue:Math.floor(Math.random() * 5)
+            
         },
         {
-            name: "goblinChampion", 
+            name: "Goblin Champion", 
             hp: 25, 
-            attackValue: Math.floor(Math.random() * 9)
+            attackValue:Math.floor(Math.random() * 9)
+            
         },
         {
-            name: "goblinLord", 
+            name: "Goblin Lord", 
             hp: 20, 
-            attackValue: Math.floor(Math.random() * 7)
+            attackValue:Math.floor(Math.random() * 7)
+            
         }
     ]
 
-    const player = {
-        name: "goblinSlayer",
-        hp: 50,
-        attackValue: Math.floor(Math.random * 8)
-
-    }
-
-function combatLoop(){
-    console.log("You have now enterd the combat loop")
-    let fightOptions = ["fight", "run"]
-    let index = readlineSync.keyInSelect(fightOptions, "Will you fight or run?");
-    console.log(index)
-    if(index === 0){
-        // Calculate monster and player hp
-        console.log("You've selected fight")
-        console.log(monsterSummoner())
+//player stats and inventory
+var player = {
+    name: "goblinSlayer",
+    hp: 50,
+    attackValue: Math.floor(Math.random() * 5 + 3),
+    inventory: []
         
-    } else if(index === 1){
-        console.log("You try to run")
+}
+    
+// possible items player can find
+var treasureArray = [ 
+    {
+        name: "Bomb", 
+        attackValue: 10,   
+    }, 
+    {
+        name: "Potion", 
+    },
+    {
+        name: "Short Sword",
+             
+    }, 
+    {
+        name: "Drain Scroll",
+            
+    }
+]
+//Controls items player recieve at random after combat
+function itemGenerator(){
+    //Generates a random item from treasureArray and adds the item to player inventory
+    var treasureDiceRoll = treasureArray[Math.floor(Math.random() * treasureArray.length)];
+     console.log(treasureDiceRoll)
+    player.inventory.push(treasureDiceRoll)
+    console.log("You have gained the item " + treasureDiceRoll.name)
+    //Removes sword and drain scroll after they are aquired once 
+    if(treasureDiceRoll.name === "Short Sword" ){
+        treasureArray.splice(2, 1)
+        console.log(treasureArray)
+    } else if( treasureDiceRoll.name === "Drain Scroll"){
+        treasureArray.splice(3, 1)
+        console.log(treasureArray)
     }
 
 }
-//Determines what monster you will encounter and sends result to combat loop
+
+    //Controls the effects of items and allows player to use items
+    //Prompt user to use potion or bomb
+    function itemEffects(){
+    items = ["Potion", "Bomb", "Sword", "Drain Scroll", "Inventory"],
+    index = readlineSync.keyInSelect(items, "Use: Potion / Bomb / Sword / Drain Scroll / Inventory")
+    //Potion Effect
+    if(index === 0 && player.inventory.includes("Potion") > 0){
+        console.log("You use a potion")
+        player.hp = player.hp + 5
+        console.log("Your hp is now " + player.hp)
+    //Bomb effect
+    } else if(index === 1 && player.inventory.includes("Bomb") > 0){
+        console.log("You throw a bomb at the goblin")
+        fightingGoblin.hp = fightingGoblin.hp - 8
+        console.log("The goblin is exploded its HP is now " + fightingGoblin.hp)
+    //Sword Effect
+    } else if(index === 2){
+        player.attackValue = Math.floor(Math.random() * 7 + 3)
+        console.log("You draw your short sword " )
+    //Drain Scroll effect
+    } else if(index === 3){ 
+        console.log("You steal VITALITY from the goblin ")
+        fightingGoblin.hp = fightingGoblin.hp - 4
+        console.log("Goblin hp is decreased to " + fightingGoblin.hp)
+        player.hp = player.hp + 4
+        console.log("Your hp increases to " + player.hp)
+    //Inventory
+    } else if( index === 4){
+        console.log("- You peak into your pack and you see: " + player.inventory)
+    }
+}
+
+//Determines what monster you will encounter and sends result to combat loop 
 function monsterSummoner(){
     console.log("You have entered goblin summoner function")
+    //Generates random goblin
     var goblin = goblinArray[Math.floor(Math.random() * goblinArray.length)];
-    
-        if (goblin === "loneGoblin"){
-            console.log("Lone goblin has appeared")
+
+        if (goblin.name === "Lone Goblin"){
+            console.log("You track a LONE GOBLIN in the area.")
+            
         
-        } else if(goblin === "hobGoblin"){
-            console.log("Hob goblin has appeared")
+        } else if(goblin.name === "Hob Goblin"){
+            console.log("You track a HOBGOBLIN in the area.")
+            
         
-        } else if(goblin === "goblinChampion"){
-            console.log("Goblin champion has appeared")
+        } else if(goblin.name === "Goblin Champion"){
+            console.log("You sense a GOBLIN CHAMPION nearby.")
+            
         
-        } else if(goblin === "goblinLord"){
-            console.log("Goblin lord has appeared")
+        } else if(goblin.name === "Goblin Lord"){
+            console.log("You sense a GOBLIN LORD in the area.")
             
     }
     
     return goblin
-    combatLoop()
+    
+}
+
+// //Determines whether or not the player escapes when they try to run
+function run(){
+    var runDiceRoll = Math.floor(Math.random() * 2)
+    console.log(runDiceRoll)
+        
+    if (runDiceRoll === 0 ){
+        console.log("You have successfully escaped")
+           
+    } else if (runDiceRoll === 1){
+        console.log("You have failed to escaped")
+            
+        
+         combatLoop()
+        
+    }
+}
+
+//Controls the assignment of hp values during a battle
+function combatLoop(fightingGoblin){
+    console.log("You have entered the combat loop")
+    
+    fightingGoblin = monsterSummoner()
+
+    while(player.hp > 0 && fightingGoblin.hp > 0){
+                
+            console.log("YOU ATTACK THE " + fightingGoblin.name)
+            var newGoblinHp = fightingGoblin.hp - player.attackValue
+            fightingGoblin.hp = newGoblinHp
+            console.log("~ The goblin's hp is now " + fightingGoblin.hp + " ~")
+                        
+            console.log("THE " + fightingGoblin.name + " ATTACKS YOU")
+            var newPlayerHp = player.hp - fightingGoblin.attackValue
+            player.hp = newPlayerHp  
+            console.log("* Your hp is now " + newPlayerHp + " *")
+        
+            itemEffects()
+               
+    }
+//Rewards player or prints dead screen
+if(player.hp > 0 && fightingGoblin.hp <= 0){
+    //console.log("You recieve an item")
+    itemGenerator()
+    console.log("You rest")
+     player.hp = player.hp + 10
+     console.log("You gain 10 HP. Your HP is now " + player.hp)
+     
+            
+} else if(fightingGoblin.hp > 0 && player.hp <= 0){
+        console.log("You are dead.")
+            
+    }
+ }
+
+//Allows the player to fight or run away
+function combatChoice(){
+    console.log("You have now enterd the combat choice")
+    let fightOptions = ["fight", "run"]
+    let index = readlineSync.keyInSelect(fightOptions, "Will you fight or run?");
+    console.log(index)
+    
+    if(index === 0){
+        // Calculate monster and player hp
+        console.log("You've selected fight")
+
+        combatLoop()
+            
+    } else if(index === 1){
+        console.log("You try to run")
+        run()
+    }
+    
 }
 
 //Determines whether or not you encounter a monster
@@ -88,13 +216,15 @@ function monsterEncounterTrigger(){
 
     if( encounterDiceRoll === 1){
         console.log("You have encountered a monster!")
-        combatLoop()
+        //monsterSummoner()
+        combatChoice()
+       
     } else if(encounterDiceRoll === 2){
         console.log("You have spotted something off in the bushes.")
-        walk()
+        
     } else if(encounterDiceRoll === 3){
         console.log("You continue down the path.")
-        walk()
+        
     }
      //return result
 }
@@ -104,6 +234,7 @@ function walk(){
 if (readlineSync.keyInYN('Will you walk?')) {
     // 'Y' key was pressed.
     console.log("You begin to walk");
+    console.log(treasureArray)
     monsterEncounterTrigger()
   } else {
     // Another key was pressed.
@@ -111,146 +242,13 @@ if (readlineSync.keyInYN('Will you walk?')) {
     // Do something...
   }
 }
-walk()
 
-// function goblinAttackAssignment(){
+//let fightingGoblin = monsterSummoner()
 
-//     if(monsterGenerator === loneGoblin){
-//         goblinAttackDiceRoll = Math.floor(Math.random * 3)
-//     } else if(monsterGenerator === hobGoblin){
-//         goblinAttackDiceRoll = Math.floor(Math.random * 5)
-//     } else if(monsterGenerator === goblinChampion){
-//         goblinAttackDiceRoll = Math.floor(Math.random * 9)
-//     } else if(monsterGenerator === goblinLord){
-//         goblinAttackDiceRoll = Math.floor(Math.random * 7)
-//     }
-//     return goblinAttackDiceRoll
-// }
+while(player.hp > 0){
+    walk()
+}
 
-// //Manages goblin lord's hp
-// function goblinLord(){
-//     let goblinHp = 20;
-//     const playerAttackDiceRoll = Math.floor(Math.random * 6)
-
-//     for(let goblinHp = 20; goblinHp > 0; goblinHp - playerAttackDiceRoll){
-
-//     }
-// }
-
-// //Manages goblin's hp
-// function loneGoblin(){
-//     let goblinHp = 10;
-//     const playerAttackDiceRoll = Math.floor(Math.random * 6)
-
-//     for(let goblinHp = 10; goblinHp > 0; goblinHp - playerAttackDiceRoll){
-
-//     }
-// }
-
-// //Manages hobgoblin's hp
-// function hobGoblin(){
-//     let goblinHp = 15;
-//     const playerAttackDiceRoll = Math.floor(Math.random * 6)
-
-//     for(let goblinHp = 15; goblinHp > 0; goblinHp - playerAttackDiceRoll){
-
-//     }
-// }
-
-// //Manages goblin champions's hp
-// function goblinChampion(){
-//     let goblinHp = 30;
-//     const playerAttackDiceRoll = Math.floor(Math.random * 6)
-
-//     for(let goblinHp = 30; goblinHp > 0; goblinHp - playerAttackDiceRoll){
-
-//     }
-// }
-
-
-// //manages player's hp
-// function playerHpCounter(){
-// let playerHp = currentPlayerHp
-// const goblinAttackDiceRoll = Math.floor(Math.random * 9)
-
-// for(let playerHp = currentPlayerHp; currentPlayerHp > 0; currentPlayerHp - goblinAttackDiceRoll){
-
-//     }
-// }
-
-// refactor monster generator function to return an object of a random monster 
-// const monstersArr = [ 
-//     {
-//         name: "monster1", 
-//         hp: 100, 
-//         attackValue: Math.floor(Math.random * 3)
-//     }, 
-//     {
-//         name: "monster2", 
-//         hp: 100, 
-//         attackValue: Math.floor(Math.random * 3)
-//     }
-//     {
-//         name: "monster3", 
-//         hp: 100, 
-//         attackValue: Math.floor(Math.random * 3)
-//     }
-//     {
-//         name: "monster4", 
-//         hp: 100, 
-//         attackValue: Math.floor(Math.random * 3)
-//     }
-// ]
-/*
-monster object example: 
-    const monsterObj = {
-        name: "somename", 
-        hp: 100,
-        attackvalue: Math.floor(Math.random * 3)
-    }
-*/ 
-
-// if you want to check the name of the monster in an if statement, 
-// if(monsterObj.name === "somename") {
-//      // do something here 
-// }
-
-// 
-// "loneGoblin" 
-//
-
-//     function walk(){
-//     let startWalking = readlineSync.keyInSelect(walkOption, "Will you start walking? ")
-
-//     if(startWalking === 1){
-//         console.log("You start walking along the path")
-//         monsterEncounterTrigger()
-//     }
-// }
-
-// do{
-//     walk()
-// }
-// while (currentPlayerHp > 0 )
-
-//Game Loop
-// while(currentPlayerHp > 0){
-//     walk()
-// }
-
-// function combatLoop(){
-
-//     let fightOptions = ["fight", "run"],
-//     index = readlineSync.keyInSelect(fightOptions, "Will you fight or run?");
-
-//     for(goblinAttackRoll, playerAttackRoll, hp; playerHp > 0 || goblin > 0; playerHp - goblinAttackDiceRoll, hp - playerAttackDiceRoll){
-//         "Goblin attacks the player. Your hp is now " + playerHp + "<br>";
-//         "Player attacks the goblin. Goblin hp is now " + hp + "<br>";
-//         }
-//     if(run = true){
-//         runDiceRoll
-//         }
-//     }
 
 
 
