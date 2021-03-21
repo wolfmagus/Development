@@ -1,0 +1,10 @@
+{
+    "completed": true,
+    "_id": "60513016ee6f8d3fc3fecd95",
+    "title": "Hello, this is required, post number 3.",
+    "description": "This description is optional however.",
+    "price": 3,
+    "imgUrl": "http://path-to-url.jpg",
+    "sessionId": "roymaegus",
+    "__v": 0
+}

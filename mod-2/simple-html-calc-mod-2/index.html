@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        
+        <title>Simple HTML Calculator</title>
+    
+    </head>
+    
+    <body>
+        <div id = div1>
+            <h1 class = "title">Simple HTML Calculator</h1>
+        </div>
+
+        <div class = "title-bar">
+            <h3 class = "title">Choose your operation</h3>
+        </div>
+    <div id = "div1">
+        <form name = "addition" id = "addition">
+            <label class = "label" for = "title"> Result </label>
+            
+            <input type = number name = "add1" id = "addBox1" placeholder="first number" required/>
+            <label class="label" for="title"> + </label>
+            <input type = number name = "add2" id = "addBox2" placeholder="second number" required/>
+            <button>Add</button>
+            
+            <hr>
+            
+            </form>
+            <h3 id = "addOutput"></h3>
+            
+    </div>
+    <div id = "div2">
+                <form name = "subtraction" id = "subtraction">
+                <label class = "label" for = "title"> Result </label>
+                
+                <input type = number name = "sub1" id = "subBox1" placeholder="first number" required/>
+                <label class="label" for="title"> - </label>
+                <input type = number name = "sub2" id = "subBox2" placeholder="second number" required/>
+                <button>Subtract</button>
+                
+                <hr>
+                </form>
+                <h3 id = "subOutput"></h3>
+    </div>
+    <div id = "div3">
+                <form name = "multiplication" id = "multiplication">
+                    <label class = "label" for = "title"> Result </label>
+                    
+                    <input type = number name = "mult1" id = "multBox1" placeholder="first number" required/>
+                    <label class="label" for="title"> * </label>
+                    <input type = number name = "mult2" id = "multBox2" placeholder="second number" required/>
+                    <button>Multiply</button>
+                    
+                    <hr>
+                    </form>
+                    <h3 id = "multOutput"></h3>
+    </div>                
+    </body>
+    <script src="app.js"></script>
+
+
+</html>

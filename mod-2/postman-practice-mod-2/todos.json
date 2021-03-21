@@ -1,0 +1,32 @@
+[
+    {
+        "completed": false,
+        "_id": "60510b55ee6f8d3fc3fecd90",
+        "title": "Hello, this is required, post number 1.",
+        "description": "This description is optional however.",
+        "price": 1,
+        "imgUrl": "http://path-to-url.jpg",
+        "sessionId": "roymaegus",
+        "__v": 0
+    },
+    {
+        "completed": false,
+        "_id": "60512ff7ee6f8d3fc3fecd94",
+        "title": "Hello, this is required, post number 2.",
+        "description": "This description is optional however.",
+        "price": 2,
+        "imgUrl": "http://path-to-url.jpg",
+        "sessionId": "roymaegus",
+        "__v": 0
+    },
+    {
+        "completed": false,
+        "_id": "60513016ee6f8d3fc3fecd95",
+        "title": "Hello, this is required, post number 3.",
+        "description": "This description is optional however.",
+        "price": 3,
+        "imgUrl": "http://path-to-url.jpg",
+        "sessionId": "roymaegus",
+        "__v": 0
+    }
+]

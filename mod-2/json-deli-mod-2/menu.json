@@ -1,0 +1,69 @@
+{
+    "appetizers": [
+        {
+            "name": "Spicy Wings",
+            "ingredients": ["hot sauce","wings"],
+            "description":"A plate of wings with attitude."
+        },
+        {
+            "name": "fried pickles",
+            "ingredients": ["pickles","beer", "batter"],
+            "description":"A pickles of pickles with attitude."
+        }
+    ],
+
+    "cold sandwiches": [
+        {
+            "name": "Ham Sandwich",
+            "ingredients": ["ham","cheese","lettuce","tomato","white bread"],
+            "description":"Let's get back to basics."
+        },
+        {
+            "name": "Submarine Sandwich",
+            "ingredients": ["turkey","cheese","lettuce","tomato","french bread"],
+            "description":"A sub fit for the deep."
+        }
+    ],
+
+    "hot sandwiches":[
+        {
+            "name": "Meatball Sub",
+            "ingredients": ["meatballs","marinara sauce","french bread"],
+            "description":"That's a spicy meatball."
+        },
+        {
+            "name": "Grilled Cheese",
+            "ingredients": ["cheese","white bread"],
+            "description":"Just like mom makes!"
+        }
+    ],
+
+    "desserts":[
+        {
+            "name": "Cookie Cake",
+            "ingredients": ["big cookie", "cake"],
+            "description":"Better than the sum of its parts"
+        },
+        {
+            "name": "Bear Hug",
+            "ingredients": ["you","Big Charlie"],
+            "description":"Our chef gives you a good-bye hug. What dessert could be sweeter?"
+        }
+
+    ],
+
+    "drinks":[
+        {
+            "name": "Soda",
+            "ingredients": ["coke", "pepsi"],
+            "description":"Less is more."
+        },
+        {
+            "name": "Water",
+            "ingredients": ["1 Hydrogen","2 Oxygen"],
+            "description":"Refreshing..."
+        }
+    ]
+
+   
+}

@@ -103,7 +103,40 @@ function itemGenerator(){
         console.log("Your hp increases to " + player.hp)
     //Inventory
     } else if( index === 4){
-        console.log("- You peak into your pack and you see: " + player.inventory)
+        console.log("- You peak into your pack and you see: " )
+        // arr = [5, 6, 7, 8, 9]
+        // arr[i] -> arr[]
+        // arr.length
+        /*
+        var treasureArray = [ 
+            {
+                name: "Bomb", 
+                attackValue: 10,   
+            }, 
+            {
+                name: "Potion", 
+            },
+            {
+                name: "Short Sword",
+                    
+            }, 
+            {
+                name: "Drain Scroll",
+                    
+            }
+        ]
+
+        console.log(player.inventory[0]) => {name: "bomb", attackValue: 10}
+        console.log(player.inventory[0].name) => "bomb" 
+
+        console.log(player.inventory[1]) => {name: "Potion"}
+        console.log(player.inventory[1].name) => "Potion"
+        
+        
+        */
+        for(let i = 0; i < player.inventory.length; i++ ){
+            console.log(player.inventory[i].name)
+        }
     }
 }
 

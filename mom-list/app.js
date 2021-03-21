@@ -1,5 +1,5 @@
-//Create a form object linked to addItem by name
-const form = document.addItem
+// //Create a form object linked to addItem by name
+ const form = document.addItem
 
 
 //Listen for submit event
