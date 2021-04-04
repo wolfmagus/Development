@@ -1,7 +1,6 @@
 // //Create a form object linked to addItem by name
  const form = document.addItem
 
-
 //Listen for submit event
 form.addEventListener("submit", function(event){
     event.preventDefault()
@@ -14,8 +13,6 @@ form.addEventListener("submit", function(event){
     addItemToList(todoText)
     form.title.value = ""
 })
-
-
 
      //Adds an item to the list.
 function addItemToList(item) {

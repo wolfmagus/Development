@@ -4,7 +4,7 @@ let numArray = [1,2,3,4,5]
 const doubleNumbers = numArray.map(num =>  num * 2)
 console.log(doubleNumbers)
 
-// // 2. 
+// 2. 
 const stringNumbers = numArray.map(num =>  num.toString())
 console.log(stringNumbers)
 
